@@ -7,9 +7,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
-import { green } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToUserWishlist, addToWishlist, removeFromWishlist } from '../../features/wishlist/wishlistSlice'; 
+import { addToWishlist, removeFromWishlist } from '../../features/wishlist/wishlistSlice'; 
 import { toast } from 'react-toastify';
 import './movieList.css'
 import posterImage from '../../asset/Movie_Poster.png'

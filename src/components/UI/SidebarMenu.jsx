@@ -1,6 +1,6 @@
 // components/UI/SidebarMenu.jsx
 import React from 'react';
-import { Box, IconButton, Typography, Stack, Avatar, OutlinedInput, InputAdornment } from '@mui/material';
+import { Box, IconButton, Typography, Stack, OutlinedInput, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
@@ -27,6 +27,7 @@ const SidebarMenu = ({ isOpen, toggleSidebar }) => {
          <img 
           src={logo}
           width='100%'
+          alt="logo"
           height='25px'
           class="mt-4"
          /> 
@@ -35,6 +36,7 @@ const SidebarMenu = ({ isOpen, toggleSidebar }) => {
          <img 
           src={logoIcon}
           width='100%'
+          alt="logo"
           height='25px'
           class="mt-4"
          /> 

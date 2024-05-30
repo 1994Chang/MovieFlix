@@ -1,13 +1,12 @@
 // components/Auth/Signup.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, signup } from '../../features/auth/authSlice';
+import {  signup } from '../../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Input from '../UI/Input';
 import Buttons from '../UI/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'; 
 import BgImage from '../../asset/background-main.jpg'
 import logo from '../../asset/MovieFlix-logo.png'
@@ -57,6 +56,7 @@ const Signup = () => {
           <img 
             src={logo}
             width='100%'
+            alt='logo'
             height='25px'
             class="mt-4"
           /> 

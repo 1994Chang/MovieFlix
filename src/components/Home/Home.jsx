@@ -1,5 +1,5 @@
 // components/UI/Home.jsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, InputAdornment, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,7 +7,6 @@ import Input from '../UI/Input';
 import Buttons from '../UI/Button';
 import MovieList from '../MovieList/MovieList';
 import { fetchMovies, setMovieName } from '../../features/movie/moviesSlice';
-import { Height } from '@mui/icons-material';
 import { toast } from 'react-toastify';
 
 const Home = () => {
