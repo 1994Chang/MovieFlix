@@ -28,6 +28,7 @@ const App = () => {
         </Routes>
       </Router>
       <ToastContainer
+      position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
         closeOnClick
