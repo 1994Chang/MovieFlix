@@ -6,7 +6,7 @@ console.log(apiKey,"apikey")
  export  const getMovielist = async(movieName) =>{
         try {
 
-            const res = await axios(`http://www.omdbapi.com/?s=${movieName}&apikey=${apiKey}&page=1`);
+            const res = await axios(`https://www.omdbapi.com/?s=${movieName}&apikey=${apiKey}&page=1`);
             console.log(res,"resorce in api")
             return res;
         } catch (error) {
