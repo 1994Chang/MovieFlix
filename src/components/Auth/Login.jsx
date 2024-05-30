@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'; 
 import BgImage from '../../asset/background-main.jpg'
+import logo from '../../asset/MovieFlix-logo.png'
 
 const Login = ({ user }) => {
   const [email, setEmail] = useState('');
@@ -33,23 +34,32 @@ const Login = ({ user }) => {
 
   return (
     <Box sx={{ backgroundImage: `url(${BgImage})`, height: '100vh' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }} >
-        <Card sx={{ maxWidth: 275, marginLeft: 'auto', marginRight: 'auto', marginTop: '20px' }}>
-            <CardContent>
-            <Typography sx={{ fontSize: 32, textAlign: 'center' }}>Login</Typography>
-            <form onSubmit={handleSubmit}>
-                <Input
-                    placeholder="Enter Your Email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    sx={{ width: "100%" }}
-                />
-                {emailError && <p>{emailError}</p>}
-                <Buttons type="submit">Login</Buttons>
-            </form>
-            </CardContent>
-        </Card>
+        <Box class="flex justify-center items-center h-screen" >
+          <Card sx={{ maxWidth: 275, marginLeft: 'auto', marginRight: 'auto', marginTop: '20px' }}>
+            <img 
+                src={logo}
+                width='100%'
+                alt='logo'
+                height='25px'
+                class="mt-4"
+              /> 
+              <CardContent>
+              {/* <Typography sx={{ fontSize: 32, textAlign: 'center' }}>Login</Typography> */}
+              <form onSubmit={handleSubmit}>
+                  <Input
+                      placeholder="Enter Your Email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      sx={{ width: "100%" }}
+                  />
+                  {emailError && <p>{emailError}</p>}
+                  <div class="text-center mt-2">
+                    <Buttons type="submit">Login</Buttons>
+                  </div>
+              </form>
+              </CardContent>
+          </Card>
         </Box>
     </Box>
   );

@@ -51,7 +51,7 @@ const Signup = () => {
         },
       }}
     >
-      <Box className="flex justify-center items-center h-screen" >
+      <Box class="flex justify-center items-center h-screen" >
         <Card sx={{ minWidth: 375, marginLeft: 'auto', marginRight: 'auto', marginTop: '20px',zIndex:'1000' }}>
           <img 
             src={logo}
@@ -60,7 +60,7 @@ const Signup = () => {
             height='25px'
             class="mt-4"
           /> 
-            <CardContent>
+            <CardContent >
                 {/* <Typography class="text-center">Signup</Typography> */}
                 <form onSubmit={handleSubmit}>
                     <Input
