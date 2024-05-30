@@ -1,0 +1,13 @@
+/* components/UI/Button.css */
+.btn{
+    color: var(--primary-color-50) !important;
+    background-color:var(--primary-color) !important;
+    /* height: 50px; */
+    margin-top: 0px !important;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-color-100) !important;
+    border: 2px solid var(--primary-color) !important;
+    color:var(--primary-color) !important;
+  }

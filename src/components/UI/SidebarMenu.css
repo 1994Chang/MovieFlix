@@ -1,0 +1,107 @@
+/* components/UI/SidebarMenu.css */
+
+/* Styling for <a> tags */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/* Styling for .sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-y: hidden; 
+  transition: width 0.3s;
+}
+.main-content-area {
+  max-height: calc(100vh - 1px); 
+  overflow-y: auto; 
+}
+.sidebar.open {
+  min-width: 250px !important;
+}
+
+.sidebar.closed {
+  min-width: 60px !important;
+}
+
+/* Styling for .wishlist */
+.sidebar .wishlist {
+  font-size: 52px;
+  text-align: center;
+}
+
+/* Styling for .menu */
+/* .sidebar .menu {
+} */
+
+/* Styling for .menu-item */
+.sidebar .menu .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  transition: padding 0.3s;
+}
+
+.sidebar .menu .menu-item.collapsed {
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* Styling for .menu-link */
+.sidebar .menu .menu-item .menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px;
+  border-radius: 10px;
+  text-decoration: none !important;
+}
+
+.sidebar .menu .menu-item .sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 3px;
+  border-radius: 10px;
+  text-decoration: none !important;
+}
+/* Styling for .user-profile */
+.sidebar .user-profile {
+  position: absolute;
+  bottom: 0;
+  text-align: left;
+  padding: 16px;
+}
+
+.sidebar .user-profile .avatar {
+  margin: auto;
+}
+
+.sidebar .user-profile .user-info {
+  text-align: left;
+  margin-left: 8px;
+}
+
+/* Styling for <aside> */
+aside {
+  width: auto !important;
+}
+
+

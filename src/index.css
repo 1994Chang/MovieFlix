@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary-color: #e91616;
+  --primary-color-50 : #FFF1F1;
+  --primary-color-100 : #FFE0E0;
+  --primary-color-200:#FFC6C6;
+  --primary-color-300:#FF9F9F;
+  --primary-color-500:#FB3838;
+  --primary-color-800:#A21212;
+  --primary-color-850:#861616;
+  --primary-color-900:#490606;
+
+  --white-color:#ffffff;
+  
+}
+
+
+body {  
+  margin: 0px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+

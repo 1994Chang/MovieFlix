@@ -1,0 +1,49 @@
+.cardImageCover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+ 
+.card-gradient-shadow {
+  display: none;
+    
+  }
+  .movie-card:hover{
+    .card-gradient-shadow{
+      display: inline;
+      position: absolute;
+      top: 20%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(transparent 0%, rgb(187, 105, 87) 100%);
+      z-index: 1;
+    }
+    
+  }
+  .done-icon{
+    color: var(--primary-color);
+  }
+  .movie-card{
+    max-width: 350px;
+    max-height: 450px;
+    position: relative;
+  }
+  .icon-btn {
+    z-index: 2; 
+  }
+  .movie-title{
+    color: var(--primary-color-50);
+    font-weight: 900;
+    margin-bottom: 0px !important;
+  }
+  .movie-year{
+    color: var(--primary-color-100);
+    font-weight: 500;
+  }
+  .bookmark-active{
+    color:var(--primary-color);
+  }
+  .bookmark-inactive{
+    color: var(--primary-color-50);
+  }
