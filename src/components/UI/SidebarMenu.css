@@ -5,15 +5,36 @@ a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  /* margin: 5%; */
 }
 
 a:hover {
   text-decoration: none;
+  background-color: var(--primary-color) !important;
+  color: var(--primary-color-50) !important;
+  border-radius: 50px;
 }
+/* .sidebar_input_search{
+  border: 1px solid var(--border-color);
+  color: var(--primary-color-50) !important;
+} */
 
+.search_icon{
+  color: var(--primary-color-50);
+}
+.divider{
+  background-color: var(--border-color);
+  width: 95%;
+}
+.icon_btn{
+  color: var(--primary-color-50) !important;
+}
 a.active {
   text-decoration: none;
   color: var(--primary-color);
+}
+.css-dip3t8{
+  background-color:black !important;
 }
 
 /* Styling for .sidebar */
@@ -25,6 +46,8 @@ a.active {
   overflow-y: auto;
   overflow-y: hidden; 
   transition: width 0.3s;
+  border: 1px solid var(--border-color) !important;
+
 }
 .main-content-area {
   max-height: calc(100vh - 1px); 
@@ -38,6 +61,18 @@ a.active {
   min-width: 60px !important;
 }
 
+.sidebar.closed a{
+  padding: 12px;
+}
+.sidebar.closed a:hover {
+  text-decoration: none;
+  background: none !important;
+  color: var(--primary-color);
+  
+}
+.sidebar.closed .icon_btn{
+ margin-right:10px ;
+}
 /* Styling for .wishlist */
 .sidebar .wishlist {
   font-size: 52px;

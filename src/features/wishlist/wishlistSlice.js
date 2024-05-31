@@ -19,10 +19,18 @@ const wishlistSlice = createSlice({
     removeFromWishlist: (state, action) => {
       const { movieName, movie } = action.payload;
       if (state.wishlists[movieName]) {
-        state.wishlists[movieName] = state.wishlists[movieName].filter(
+        const updatedWishlist = state.wishlists[movieName].filter(
           (m) => m.imdbID !== movie.imdbID
         );
+        return {
+          ...state,
+          wishlists: {
+            ...state.wishlists,
+            [movieName]: updatedWishlist,
+          },
+        };
       }
+      return state;
     },
   },
 });

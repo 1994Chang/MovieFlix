@@ -15,6 +15,7 @@
   --primary-color-900:#490606;
 
   --white-color:#ffffff;
+  --border-color:rgb(36, 35, 35);
   
 }
 
@@ -26,6 +27,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: var(--primary-color-50);
 }
 
 code {

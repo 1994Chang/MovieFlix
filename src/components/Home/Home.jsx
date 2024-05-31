@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      <Typography class='text-3xl mb-5 text-gray-600'>Welcome to the MovieFlix</Typography>
+      <Typography class='text-3xl mb-5'>Welcome to the MovieFlix</Typography>
       <div>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2} alignItems="center">

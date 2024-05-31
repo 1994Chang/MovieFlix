@@ -1,14 +1,9 @@
 #outlined-basic{
     padding: 10px 12px !important;
+    color: var(--primary-color-50) !important;
 }
 
-/* External CSS file */
-/* .input-search.MuiOutlinedInput-root.MuiOutlinedInput-notchedOutline {
-    border-color: initial;
-  } */
+.input-search{
+  border: 1px solid var(--border-color) !important;
   
-  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus {
-    border:1px solid var(--primary-color-300) !important; 
-    background-color: var(--white-color) !important;
-  }
-  
+}

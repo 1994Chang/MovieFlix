@@ -15,14 +15,15 @@ import { useSelector } from 'react-redux';
 import logo from '../../asset/MovieFlix-logo.png';
 import logoIcon from '../../asset/MovieFlix_icon.png'
 import Profile from './Profile';
+import Input from './Input';
 
 const SidebarMenu = ({ isOpen, toggleSidebar }) => {
   const wishlists = useSelector((state) => state.wishlist.wishlists);
   const validWishlists = Object.entries(wishlists).filter(([_, movies]) => Array.isArray(movies) && movies.length > 0);
   const userName = useSelector((state) => state.auth.user.name);  
   return (
-    <Sidebar className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-      <Box class="flex justify-between items-center p-2 " >
+    <Sidebar className={`sidebar ${isOpen ? 'open' : 'closed'}`} >
+      <Box class="flex justify-between items-center p-2 "  >
         {isOpen && 
          <img 
           src={logo}
@@ -38,27 +39,27 @@ const SidebarMenu = ({ isOpen, toggleSidebar }) => {
           width='100%'
           alt="logo"
           height='25px'
-          class="mt-4"
+          class="mt-8"
          /> 
          }
         
       </Box>
         <div class="absolute top-0 right-0 z-10">
-          <IconButton onClick={toggleSidebar}>
+          <IconButton onClick={toggleSidebar} className='icon_btn'>
             {isOpen ? <CloseIcon /> : < MenuIcon/>}
           </IconButton>
         </div>
       <Menu className="menu">
         {isOpen && (
-          <OutlinedInput
-            id="outlined-adornment-search"
+          <Input
+            placeholder="search here"
             type="text"
+            // value={movieName}
+            // onChange={(e) => dispatch(setMovieName(e.target.value))}
             sx={{ width: '95%', height: '40px', margin: '8px' }}
             startAdornment={
               <InputAdornment position="start">
-                <IconButton edge="start">
-                  <SearchIcon />
-                </IconButton>
+                <SearchIcon/>
               </InputAdornment>
             }
           />
@@ -73,14 +74,11 @@ const SidebarMenu = ({ isOpen, toggleSidebar }) => {
           </NavLink>
         </MenuItem>
 
-        <Divider sx={{ width: '95%' }} />
+        <Divider className='divider'/>
 
-        <MenuItem className={isOpen ? '' : 'collapsed'}>
-            <Stack direction="row" alignItems="center">
-              <ListIcon sx={{ marginRight: 1 }} />
-              {isOpen && <Typography variant="subtitle1">My List</Typography>}
-            </Stack>
-        </MenuItem>
+        <Stack direction="row" alignItems="center" sx={{ marginLeft: 3 ,marginTop:1}} >
+          {isOpen && <Typography variant="subtitle1">My List</Typography>}
+        </Stack>
         {
           validWishlists.map(([movieName, movies]) => (
             <MenuItem className={isOpen ? '' : 'collapsed'}>
