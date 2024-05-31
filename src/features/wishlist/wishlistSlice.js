@@ -1,8 +1,7 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  wishlists: {}, 
+  wishlists: {}, // Each key will be a username, and the value will be an array of movies
 };
 
 const wishlistSlice = createSlice({
@@ -10,45 +9,24 @@ const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addToWishlist: (state, action) => {
-      const { movieName, movie } = action.payload;
-      const updatedWishlists = { ...state.wishlists };
-    
-      if (!updatedWishlists[movieName]) {
-        updatedWishlists[movieName] = [];
+      const { username, movie } = action.payload;
+      if (!state.wishlists[username]) {
+        state.wishlists[username] = []; // Initialize the wishlist if it doesn't exist
       }
-    
-      const movieExists = updatedWishlists[movieName].some(
-        (m) => m.imdbID === movie.imdbID
-      );
-    
-      if (!movieExists) {
-        updatedWishlists[movieName] = [...updatedWishlists[movieName], movie];
-      }
-    
-      return {
-        ...state,
-        wishlists: updatedWishlists,
-      };
+      state.wishlists[username].push(movie);
     },
-removeFromWishlist: (state, action) => {
-  const { movieName, movie } = action.payload;
-  const updatedWishlists = { ...state.wishlists };
+    removeFromWishlist: (state, action) => {
+      const { username, movie } = action.payload;
+      if (state.wishlists[username]) {
+        state.wishlists[username] = state.wishlists[username].filter(
+          (m) => m.imdbID!== movie.imdbID
+        );
 
-  if (updatedWishlists[movieName]) {
-    updatedWishlists[movieName] = updatedWishlists[movieName].filter(
-      (m) => m.imdbID !== movie.imdbID
-    );
-
-    if (updatedWishlists[movieName].length === 0) {
-      delete updatedWishlists[movieName];
-    }
-  }
-
-  return {
-    ...state,
-    wishlists: updatedWishlists,
-  };
-},
+        if (state.wishlists[username].length === 0) {
+          delete state.wishlists[username]; // Delete the wishlist if it's empty
+        }
+      }
+    },
   },
 });
 

@@ -12,11 +12,13 @@ import { addToWishlist, removeFromWishlist } from '../../features/wishlist/wishl
 import { toast } from 'react-toastify';
 import './movieList.css'
 import posterImage from '../../asset/Movie_Poster.png'
+import { useParams } from 'react-router-dom';
 
 const MovieList = ({ movieList, wishlisted,movieName }) => {
   const movies = movieList || [];
   const dispatch = useDispatch();
   const wishlistState = useSelector(state => state.wishlist); 
+  const { username } = useParams();
 
   if (!Array.isArray(movies)) {
     console.error('Expected movies to be an array, but received:', movies);
@@ -40,13 +42,13 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
     if (userWishlist && userWishlist.some(wishMovie => wishMovie.imdbID === movie.imdbID)) {
       toast.warning("Item is already available in your wishlist.");
     } else {
-      dispatch(addToWishlist({ movieName, movie }));
+      dispatch(addToWishlist({ username: movieName,movie: movie }));
       toast.success("Item is Added Succesfuly in  your wishlist.");
     }
   };
 
   const handleRemoveWishlistClick = (movie) => {
-    dispatch(removeFromWishlist({ movieName, movie }));
+    dispatch(removeFromWishlist({username: username,movie: movie }));
     toast.success("Item is removes Successfuly from your wishlist.");
   };
 

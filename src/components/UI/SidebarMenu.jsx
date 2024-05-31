@@ -19,7 +19,7 @@ import Input from './Input';
 
 const SidebarMenu = ({ isOpen, toggleSidebar }) => {
   const wishlists = useSelector((state) => state.wishlist.wishlists);
-  const validWishlists = Object.entries(wishlists).filter(([_, movies]) => Array.isArray(movies) && movies.length > 0);
+  // const validWishlists = Object.entries(wishlists).filter(([_, movies]) => Array.isArray(movies) && movies.length > 0);
   const userName = useSelector((state) => state.auth.user.name);  
   return (
     <Sidebar className={`sidebar ${isOpen ? 'open' : 'closed'}`} >
@@ -79,18 +79,19 @@ const SidebarMenu = ({ isOpen, toggleSidebar }) => {
         <Stack direction="row" alignItems="center" sx={{ marginLeft: 3 ,marginTop:1}} >
           {isOpen && <Typography variant="subtitle1">My List</Typography>}
         </Stack>
-        {
-          validWishlists.map(([movieName, movies]) => (
-            <MenuItem className={isOpen ? '' : 'collapsed'}>
-              <NavLink key={movieName} to={`/dashboard/${movieName}`} className="sub-menu-link">
-                <Stack direction="row" alignItems="center">
-                  <MovieIcon sx={{ marginRight: 1 }} />
-                  {isOpen && <Typography variant="subtitle1">{movieName}</Typography>}
-                </Stack>
-              </NavLink>
-            </MenuItem>
-          ))
-        }
+        {Object.keys(wishlists).map((wishlistName) => (
+          <MenuItem className={isOpen? '' : 'collapsed'}>
+            <NavLink key={wishlistName} to={`/dashboard/${wishlistName}`} className="sub-menu-link">
+              <Stack direction="row" alignItems="center">
+                <MovieIcon sx={{ marginRight: 1 }} />
+                {isOpen && wishlists[wishlistName]?.length > 0 && (
+                  <Typography variant="subtitle1">{wishlistName}</Typography>
+                )}
+              </Stack>
+            </NavLink>
+          </MenuItem>
+        ))}
+
       </Menu>
       <Profile userName={userName} isOpen={isOpen}/>
     </Sidebar>

@@ -10,6 +10,7 @@ import movieReducer from './movie/moviesSlice';
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['auth', 'wishlist'],
 };
 
 const rootReducer = combineReducers({
