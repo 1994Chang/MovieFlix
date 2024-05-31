@@ -11,27 +11,44 @@ const wishlistSlice = createSlice({
   reducers: {
     addToWishlist: (state, action) => {
       const { movieName, movie } = action.payload;
-      if (!state.wishlists[movieName]) {
-        state.wishlists[movieName] = []; 
+      const updatedWishlists = { ...state.wishlists };
+    
+      if (!updatedWishlists[movieName]) {
+        updatedWishlists[movieName] = [];
       }
-      state.wishlists[movieName].push(movie);
-    },
-    removeFromWishlist: (state, action) => {
-      const { movieName, movie } = action.payload;
-      if (state.wishlists[movieName]) {
-        const updatedWishlist = state.wishlists[movieName].filter(
-          (m) => m.imdbID !== movie.imdbID
-        );
-        return {
-          ...state,
-          wishlists: {
-            ...state.wishlists,
-            [movieName]: updatedWishlist,
-          },
-        };
+    
+      const movieExists = updatedWishlists[movieName].some(
+        (m) => m.imdbID === movie.imdbID
+      );
+    
+      if (!movieExists) {
+        updatedWishlists[movieName] = [...updatedWishlists[movieName], movie];
       }
-      return state;
+    
+      return {
+        ...state,
+        wishlists: updatedWishlists,
+      };
     },
+removeFromWishlist: (state, action) => {
+  const { movieName, movie } = action.payload;
+  const updatedWishlists = { ...state.wishlists };
+
+  if (updatedWishlists[movieName]) {
+    updatedWishlists[movieName] = updatedWishlists[movieName].filter(
+      (m) => m.imdbID !== movie.imdbID
+    );
+
+    if (updatedWishlists[movieName].length === 0) {
+      delete updatedWishlists[movieName];
+    }
+  }
+
+  return {
+    ...state,
+    wishlists: updatedWishlists,
+  };
+},
   },
 });
 
