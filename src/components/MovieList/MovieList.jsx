@@ -1,5 +1,5 @@
 // MovieList.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -14,11 +14,14 @@ import './movieList.css'
 import posterImage from '../../asset/Movie_Poster.png'
 import { useParams } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
+
 const MovieList = ({ movieList, wishlisted,movieName }) => {
   const movies = movieList || [];
   const dispatch = useDispatch();
   const wishlistState = useSelector(state => state.wishlist); 
   const { username } = useParams();
+  const navigate = useNavigate();
 
   if (!Array.isArray(movies)) {
     console.error('Expected movies to be an array, but received:', movies);
@@ -33,8 +36,8 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
     marginTop: '20px',
   };
 
-  const handleCardClick = (movie) =>{
-    console.log(movie, "in card click");
+  const handleCardClick = async(movie) =>{
+    navigate(`/dashboard/movieDetail/${movie.imdbID}`);
   }
 
   const handleWishlistClick = (movie) => {
@@ -53,6 +56,7 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
   };
 
   return (
+    <>
     <div style={gridStyle}>
       {movies.map((movie, index) => (
         <Card key={movie.imdbID || index}  className='movie-card' onClick={() => handleCardClick(movie)}>
@@ -95,6 +99,7 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
         </Card>
       ))}
     </div>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import Wishlist from './components/Wishlist/Wishlist';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MovieDetail from './components/MovieDetail/MovieDetail';
 
 const App = () => {
   const { isLoggedIn, user } = useAuth();
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/dashboard" element={isLoggedIn ? <DashboardLayout /> : <Navigate to="/signup" />}>
             <Route path="" element={<Home user={user} />} />
             <Route path="/dashboard/:username" element={<Wishlist/>} />
+            <Route path="/dashboard/movieDetail/:id" element={<MovieDetail/>} />
           </Route>
         </Routes>
       </Router>

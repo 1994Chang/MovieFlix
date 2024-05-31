@@ -14,3 +14,15 @@ const apiUrl = process.env.REACT_APP_API_URL;
             console.log(error);
         }
     }
+
+
+export const getMovieDetail = async(movieId) =>{
+    console.log(movieId,"movieId in api")
+    try{
+        const res = await axios(`${apiUrl}/?i=${movieId}&apikey=${apiKey}`);
+        // console.log(res,"res in moviedetail");
+        return res;
+    } catch(error){
+        console.log(error);
+    }
+}
