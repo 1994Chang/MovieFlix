@@ -40,7 +40,8 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
     navigate(`/dashboard/movieDetail/${movie.imdbID}`);
   }
 
-  const handleWishlistClick = (movie) => {
+  const handleWishlistClick = (movie,event) => {
+    event.stopPropagation();
     const userWishlist = wishlistState.wishlists[movieName];
     if (userWishlist && userWishlist.some(wishMovie => wishMovie.imdbID === movie.imdbID)) {
       toast.warning("Item is already available in your wishlist.");
@@ -50,7 +51,8 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
     }
   };
 
-  const handleRemoveWishlistClick = (movie) => {
+  const handleRemoveWishlistClick = (movie,event) => {
+    event.stopPropagation();
     dispatch(removeFromWishlist({username: username,movie: movie }));
     toast.success("Item is removes Successfuly from your wishlist.");
   };
@@ -62,7 +64,7 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
         <Card key={movie.imdbID || index}  className='movie-card' onClick={() => handleCardClick(movie)}>
           {!wishlisted && (
             <div class="absolute top-0 left-0 rounded-br-md">
-              <IconButton aria-label="add to Wishlist" onClick={() => handleWishlistClick(movie)} className='icon-btn'>
+              <IconButton aria-label="add to Wishlist" onClick={(event) => handleWishlistClick(movie,event)} className='icon-btn'>
                 <BookmarkAddIcon 
                 className={
                   wishlistState.wishlists[movieName]?.some(wishMovie => wishMovie.imdbID === movie.imdbID)
@@ -75,7 +77,7 @@ const MovieList = ({ movieList, wishlisted,movieName }) => {
           )}
           {wishlisted && (
             <div class="absolute top-4 right-4">
-              <IconButton aria-label="remove from Wishlist" onClick={() => handleRemoveWishlistClick(movie)} className='icon-btn'>
+              <IconButton aria-label="remove from Wishlist" onClick={(event) => handleRemoveWishlistClick(movie,event)} className='icon-btn'>
                 <DoneAllIcon className='done-icon' />
               </IconButton>
             </div>
