@@ -8,6 +8,7 @@ import Buttons from '../UI/Button';
 import MovieList from '../MovieList/MovieList';
 import { fetchMovies, setMovieName } from '../../features/movie/moviesSlice';
 import { toast } from 'react-toastify';
+import { FallingLines } from 'react-loader-spinner';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,23 @@ const Home = () => {
       </div>
       <Grid container alignItems="center" >
         <Grid item xs sx={{marginTop:'20px'}}>
-          {status === 'loading' && <Typography>Loading...</Typography>}
+          {status === 'loading' && 
+             <Grid container item xs={12} 
+             sx={{
+               display: 'flex',
+               justifyContent: 'center',
+               alignItems: 'center',
+              //  minHeight: '100vh',
+             }}
+           >
+               <FallingLines
+                 color="#e91616"
+                 width="100"
+                 visible={true}
+                 ariaLabel="falling-circles-loading"
+               />
+           </Grid>
+          }
           {status === 'failed' && <Typography>Error fetching movies</Typography>}
           {status !== 'loading' && movieList && (
             <>
